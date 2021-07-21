@@ -42,7 +42,7 @@ Feel free to make any changes to the `tick` function and add any new code as lon
 - This is a chance to show some creativity and how you like to go about solving problems
 - It's also an opportunity to show how you work with a team as you are welcome to ask questions and talk through ideas
 
-### Source
+## Source
 
 This is a fork of [robinpokorny/gilded-rose-javascript](https://github.com/robinpokorny/gilded-rose-javascript). The README from that repo has some details on his changes and a link to a video description.
 
