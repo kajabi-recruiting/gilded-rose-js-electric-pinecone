@@ -1,4 +1,4 @@
-const updateQuality = require("./");
+const tick = require("./");
 
 /**
  * DO NOT REVERSE-ENGINEER!
@@ -9,13 +9,13 @@ const updateQuality = require("./");
  */
 
 test("works for the original items", () => {
-  const result = djb2a(JSON.stringify(updateQuality(JSON.parse(atob(iOrig)))));
+  const result = djb2a(JSON.stringify(tick(JSON.parse(atob(iOrig)))));
 
   expect(result).toBe(422417984);
 });
 
 test("works for the Conjured items", () => {
-  const result = djb2a(JSON.stringify(updateQuality(JSON.parse(atob(iConj)))));
+  const result = djb2a(JSON.stringify(tick(JSON.parse(atob(iConj)))));
 
   expect(result).toBe(3602268778);
 });

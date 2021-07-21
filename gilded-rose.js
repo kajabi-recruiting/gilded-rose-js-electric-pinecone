@@ -1,7 +1,7 @@
 /**
  * The update quality function
  * @example
- * updateQuality([
+ * tick([
  *   { name: "+5 Dexterity Vest", sellIn: 10, quality: 20 },
  *   { name: "Aged Brie", sellIn: 2, quality: 0 },
  *   { name: "Elixir of the Mongoose", sellIn: 5, quality: 7 },
@@ -15,7 +15,7 @@
  * ]);
  */
 
-module.exports = function updateQuality(items) {
+module.exports = function tick(items) {
   for (var i = 0; i < items.length; i++) {
     if (
       items[i].name != "Aged Brie" &&

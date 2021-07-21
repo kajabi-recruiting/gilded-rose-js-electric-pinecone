@@ -1,128 +1,49 @@
-# Gilded Rose Refactoring Exercise in JavaScript
+# Gilded Rose Kata in Javascript
 
-> **TL;DR:**
-> You inherited this NPM package for stock management. You are asked to add support for a new product. Feel free to refactor as you like.
+Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city run by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that we can begin selling a new category of items.
 
-If you want to get cracking:
+### Our Current System
 
-```
-git clone https://github.com/robinpokorny/gilded-rose-javascript.git
-cd gilded-rose-javascript
-yarn
-yarn test
-```
-
-## Video about this Refactoring Exercise
-
-In this vlog I explain what is new and how to work on this task. [Watch the video](https://youtu.be/W056nRs4IS8).
-
-<img src="https://user-images.githubusercontent.com/68341/56716175-f1db7900-6739-11e9-92dc-c9d75e4946b2.png" alt="Video on YouTube" width="450">
-
----
-
-## Notes on this version
-
-- Turned into an NPM package. Only the API of the whole package needs to preserved
-- You can change the code, add dependencies, use tooling, create files or folders – whatever you find helpful
-- [Jest](https://jestjs.io/), the unit testing framework, is provided for convinience – it is entirely optional
-- The task now uses more modern naming and other conventions
-- Part of the motivation was to make it functional programming friendly
-- The original text was slighlty adjusted to reflect these changes
-
-## Original text
-
-Hi and welcome to team Gilded Rose.
-
-As you know, we are a small inn with a prime location in a prominent city ran
-by a friendly innkeeper named Allison. We also buy and sell only the finest
-goods. Unfortunately, our goods are constantly degrading in quality as they
-approach their sell by date.
-
-We have a system in place that updates our inventory for us. It was developed
-by a no-nonsense type named Leeroy, who has moved on to new adventures. Your
-task is to add the new feature to our system so that we can begin selling a
-new category of items.
-
-First an introduction to our system:
-
-- All items have a `sellIn` value which denotes the number of days we have to
-  sell the item
+- All items have a `sellIn` value which denotes the number of days we have to sell the item
 
 - All items have a `quality` value which denotes how valuable the item is
 
 - At the end of each day our system lowers both values for every item
 
-Pretty simple, right? Well this is where it gets interesting:
+#### Pretty simple, right? Well this is where it gets interesting:
 
-- Once the `sellIn` days is less then zero, `quality` degrades twice as fast
+- Once the sell by date has passed, Quality degrades twice as fast
 
-- The `quality` of an item is never negative
+- The Quality of an item is never negative
 
-- "Aged Brie" actually increases in `quality` the older it gets
+- "Aged" items actually increases in Quality the older they get
 
-- The `quality` of an item is never more than 50
+- The Quality of an item is never more than 50, unless "Legendary"
 
-- "Sulfuras", being a legendary item, never has to be sold nor does it
-  decrease in `quality`
+- "Legendary" items never have to be sold or decrease in Quality. They never change.
 
-- "Backstage passes", like aged brie, increases in `quality` as it's `sellIn`
-  value decreases; `quality` increases by 2 when there are 10 days or less
-  and by 3 when there are 5 days or less but `quality` drops to 0 after the
-  concert
+- "Backstage passes", like "Aged" items, increases in Quality as it's Sell In value approaches zero; Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert
 
-We have recently signed a supplier of conjured items. This requires an update
-to our system:
+### Our Task
 
-- "Conjured" items degrade in `quality` twice as fast as normal items
+We have recently signed a supplier of conjured items. This requires an update to our system:
 
-Feel free to make any changes to the package and add any new
-code as long as everything still works correctly. However, do not alter the
-interface of input and output of the package as this belongs to the goblin in the corner
-who will insta-rage and one-shot you as he doesn't believe in shared code
-ownership.
+- "Conjured" items degrade in Quality twice as fast as normal items
 
-Just for clarification, an item can never have its `quality` increase above 50,
-however "Sulfuras" is a legendary item and as such its `quality` is 80 and it
-never alters.
+The specs are always the source of truth in this scenario. You'll start out with some failing and some passing specs.
 
-### Sources:
+Feel free to make any changes to the `tick` function and add any new code as long as everything still works correctly.
 
-- http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/
-- https://github.com/professor/GildedRose
-- https://github.com/guyroyse/gilded-rose-javascript
+## Requirements
 
-## Help
+- Make all specs pass
+- Refactor giant if statements into something cleaner
+- Show us what it's like to to work with you
+- This is a chance to show some creativity and how you like to go about solving problems
+- It's also an opportunity to show how you work with a team as you are welcome to ask questions and talk through ideas
 
-Please read those only after tring yourself first.
+### Source
 
-<details> <summary>I have no idea what I should do</summary>
+This is a fork of [robinpokorny/gilded-rose-javascript](https://github.com/robinpokorny/gilded-rose-javascript). The README from that repo has some details on his changes and a link to a video description.
 
-Make sure you read the text properly. It asks you to add a support for a new type of product. However, the _real task_ is to refactor the current code first as it is uneasy to follow.
-
-Most people would probably work in this order:
-
-1. Write unit tests for all current product types and all edge cases
-2. Refactor the code to be more understandable; the unit tests will help prevent regressions
-3. Add unit tests for the new product, thinking about all edge cases
-4. Update the code to handle the new product and make tests pass
-   </details>
-
-<details> <summary>How do I verify I fullfiled the task?</summary>
-
-The task has many edge cases. It can be easy to think you are done, but there could be regressions. In fact, that happened to me the first time I tried this kata.
-
-To be totaly sure you did a good job, I prepared a test, that will validate your solution.
-
-It is strongly recommended to run the validation only when you think you are done and the systems supports "Conjured" items.
-
-Run this command:
-
-```
-yarn validate
-```
-
-If it passed, congratulations! You did great!
-
-If it fails, do not worry. I was there, too. You might want to test few more edge cases on the original code. The text above does not tell you everything. Resist reverse-engineering the validation test.
-
-</details>
+The purpose of the fork was to bring this more in line with a [Ruby version] we use at Kajabi. The primary change is to add descriptive (and visible) unit tests.
