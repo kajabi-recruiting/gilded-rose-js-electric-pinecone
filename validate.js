@@ -1,4 +1,4 @@
-const tick = require("./");
+import { tick } from './gilded-rose';
 
 /**
  * DO NOT REVERSE-ENGINEER!
@@ -8,13 +8,13 @@ const tick = require("./");
  * Please resist this urge, it will help you learn much more.
  */
 
-test("works for the original items", () => {
+test('works for the original items', () => {
   const result = djb2a(JSON.stringify(tick(JSON.parse(atob(iOrig)))));
 
   expect(result).toBe(422417984);
 });
 
-test("works for the Conjured items", () => {
+test('works for the Conjured items', () => {
   const result = djb2a(JSON.stringify(tick(JSON.parse(atob(iConj)))));
 
   expect(result).toBe(3602268778);
@@ -60,4 +60,8 @@ const djb2a = string => {
   }
 
   return hash >>> 0;
+};
+
+const atob = b64Encoded => {
+  return Buffer.from(b64Encoded, 'base64').toString('binary');
 };

@@ -1,16 +1,38 @@
 {
-  "name": "gilded-rose-javascript",
-  "private": true,
-  "version": "2.0.0",
-  "main": "gilded-rose.js",
-  "description": "Gilded Rose Kata in JavaScript",
-  "repository": "git@github.com:robinpokorny/gilded-rose-javascript.git",
-  "author": "Robin Pokorny <me@robinpokorny.com>",
-  "scripts": {
-    "test": "jest",
-    "validate": "jest --testRegex _validate.js"
-  },
-  "devDependencies": {
-    "jest": "^24.7.1"
-  }
+	"name": "gilded-rose-javascript",
+	"private": true,
+	"version": "2.0.0",
+	"main": "gilded-rose.js",
+	"description": "Gilded Rose Kata in JavaScript",
+	"repository": "git@github.com:robinpokorny/gilded-rose-javascript.git",
+	"author": "Robin Pokorny <me@robinpokorny.com>",
+	"engines": {
+		"node": ">=10.0.0",
+		"npm": ">=6.0.0"
+	},
+	"scripts": {
+		"test": "jest",
+		"test-watch": "jest --watch",
+		"validate": "jest --testRegex validate.js",
+		"format": "eslint --fix *.js && prettier --write *.js"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.15.7",
+		"@babel/core": "^7.15.8",
+		"@babel/node": "^7.15.8",
+		"@babel/plugin-proposal-object-rest-spread": "^7.15.6",
+		"@babel/plugin-transform-classes": "^7.15.4",
+		"@babel/plugin-transform-object-assign": "^7.14.5",
+		"@babel/preset-env": "^7.15.8",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^27.3.1",
+		"eslint": "^8.1.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-jest": "^25.2.2",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"jest": "^27.3.1",
+		"prettier": "^2.4.1"
+	},
+	"dependencies": {}
 }
